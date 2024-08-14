@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Encriptador de Texto</h1>
+
+    <textarea id="inputText" placeholder="Escribe el texto aquí..."></textarea>
+    <br>
+    <button onclick="encriptar()">Encriptar</button>
+    <button onclick="desencriptar()">Desencriptar</button>
+
+    <h2>Resultado:</h2>
+    <textarea id="outputText" readonly></textarea>
+
+    <script>
+        function encriptar() {
+            const text = document.getElementById("inputText").value;
+            let encriptado = "";
+            for (let i = 0; i < text.length; i++) {
+                encriptado += String.fromCharCode(text.charCodeAt(i) + 3);
+            }
+            document.getElementById("outputText").value = encriptado;
+        }
+
+        function desencriptar() {
+            const text = document.getElementById("outputText").value;
+            let desencriptado = "";
+            for (let i = 0; i < text.length; i++) {
+                desencriptado += String.fromCharCode(text.charCodeAt(i) - 3);
+            }
+            document.getElementById("outputText").value = desencriptado;
+        }
+    </script>
+
+</body>
+</html>
+
